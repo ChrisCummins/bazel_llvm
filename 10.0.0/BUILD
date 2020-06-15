@@ -431,6 +431,14 @@ cmake_external(
     working_directory = "llvm",
 )
 
+filegroup(
+    name = "all_files",
+    srcs = select({
+        "//:darwin": ["@clang-llvm-10.0.0-x86_64-apple-darwin//:all_files"],
+        "//conditions:default": ["@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:all_files"],
+    }),
+)
+
 # copts = ["-std=c++14", "-fno-exceptions", "-fno-rtti"]
 cc_library(
     name = "10.0.0",
