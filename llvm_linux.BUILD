@@ -26,10 +26,7 @@ cc_library(
 
 cc_library(
     name = "libs",
-    srcs = glob([
-        "lib/lib*.a",
-        "lib/lib*.so",
-    ]),
+    srcs = glob(["lib/*.a"]),
 )
 
 # Generated targets for binaries. See ./scripts/make_wrapper_script.sh
