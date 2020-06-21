@@ -55,4 +55,4 @@ before_script:
 
 script:
   # Run the tests.
-  - bazel test //... --keep_going --sandbox_debug --verbose_failures  --test_output=errors
+  - bazel test //... --keep_going --verbose_failures  --test_output=errors
