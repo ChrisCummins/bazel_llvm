@@ -2,6 +2,8 @@
 
 package(default_visibility = ["//visibility:public"])
 
+load("@llvm//tools/bzl:macros.bzl", "cc_remap_library")
+
 filegroup(
     name = "all_files",
     srcs = glob(["**"]),
@@ -24,8 +26,34 @@ cc_library(
     includes = ["include"],
 )
 
+# Add the "lib" prefix to LLVMPolly so that the
+# bazel-generated -lLLVMPolly flag works.
+cc_remap_library(
+    name = "LLVMPolly",
+    src = "lib/LLVMPolly.so",
+    dst = "lib/libLLVMPolly.so",
+)
+
 cc_library(
-    name = "libs",
+    name = "shared_libs",
+    srcs = [
+        "lib/libLTO.so",
+        "lib/libRemarks.so",
+        "lib/libarcher.so",
+        "lib/libc++.so",
+        "lib/libc++abi.so",
+        "lib/libclang.so",
+        "lib/libclang-cpp.so",
+        "lib/libgomp.so",
+        "lib/libiomp5.so",
+        "lib/libomp.so",
+        "lib/libomptarget.so",
+        "lib/libunwind.so",
+    ],
+)
+
+cc_library(
+    name = "static_libs",
     srcs = glob(["lib/*.a"]),
 )
 

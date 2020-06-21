@@ -448,7 +448,9 @@ cc_library(
     name = "10.0.0",
     data = select({
         "//:darwin": ["@clang-llvm-10.0.0-x86_64-apple-darwin//:libdir"],
-        "//conditions:default": ["@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:libdir"],
+        "//conditions:default": [
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:libdir",
+        ],
     }),
     linkopts = select({
         # llvm-config --ldflags
@@ -649,11 +651,12 @@ cc_library(
     deps = select({
         "//:darwin": [
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:headers",
-            "@clang-llvm-10.0.0-x86_64-apple-darwin//:libs",
+            "@clang-llvm-10.0.0-x86_64-apple-darwin//:static_libs",
         ],
         "//conditions:default": [
             "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:headers",
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:libs",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:static_libs",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:LLVMPolly",
         ],
     }),
 )
