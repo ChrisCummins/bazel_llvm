@@ -30,11 +30,13 @@ before_install:
   - "./install.sh --user"
   - rm -f install.sh
 
-script:
-  # Print some LLVM config options, useful for debugging.
+before_script:
+  # Print some LLVM config options that are useful for debugging.
   - bazel run //10.0.0:llvm-config -- --system-libs  | tr ' ' '\n' | sed '/^$/d ;s/^/    "/ ; s/$/",/'
   - bazel run //10.0.0:llvm-config -- --cxxflags  | tr ' ' '\n' | sed '/^$/d ;s/^/    "/ ; s/$/",/'
   - bazel run //10.0.0:llvm-config -- --ldflags  | tr ' ' '\n' | sed '/^$/d ;s/^/    "/ ; s/$/",/'
   - bazel run //10.0.0:llvm-config -- --libs  | tr ' ' '\n' | sed '/^$/d ;s/^/    "/ ; s/$/",/'
+
+script:
   # Run the tests.
   - bazel test //... --keep_going --sandbox_debug --verbose_failures  --test_output=errors

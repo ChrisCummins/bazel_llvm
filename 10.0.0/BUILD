@@ -651,7 +651,7 @@ cc_library(
     deps = select({
         "//:darwin": [
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:headers",
-            "@clang-llvm-10.0.0-x86_64-apple-darwin//:static_libs",
+            "@clang-llvm-10.0.0-x86_64-apple-darwin//:libs",
         ],
         "//conditions:default": [
             "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:headers",
