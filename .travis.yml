@@ -5,17 +5,28 @@ jobs:
     # macOS: 10.15.
     - os: osx
       osx_image: xcode11.5
-      env: BAZEL_VERSION=3.1.0
+      env: BAZEL_VERSION=3.0.0
+    - os: osx
+      osx_image: xcode11.5
+      env: BAZEL_VERSION=0.29.1
     # Ubuntu Linux 18.04 and clang 7.
     - os: linux
       dist: bionic
       compiler: clang
-      env: BAZEL_VERSION=3.1.0
+      env: BAZEL_VERSION=3.0.0
+    - os: linux
+      dist: bionic
+      compiler: clang
+      env: BAZEL_VERSION=0.29.1
     # Ubuntu Linux 18.04 and GCC 7.4.0.
     - os: linux
       dist: bionic
       compiler: gcc
-      env: BAZEL_VERSION=3.1.0
+      env: BAZEL_VERSION=3.0.0
+    - os: linux
+      dist: bionic
+      compiler: gcc
+      env: BAZEL_VERSION=0.29.1
 
 before_install:
   - OS=linux
