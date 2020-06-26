@@ -5,7 +5,7 @@
 
 ## Overview
 
-Pre-built [LLVM releases](https://releases.llvm.org/download.html) use
+Pre-built [LLVM releases](https://releases.llvm.org/download.html) to use
 as dependencies in bazel projects:
 
  * `@llvm//<version>` provides a `cc_library` that can be used as
