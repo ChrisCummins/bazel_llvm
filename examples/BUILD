@@ -3,7 +3,7 @@
 sh_test(
     name = "clang-compile-10.0.0",
     srcs = ["clang-compile.sh"],
-    data = ["//10.0.0:clang"],
+    data = ["@llvm//10.0.0:clang"],
     deps = [
         "@bazel_tools//tools/bash/runfiles",
     ],
@@ -17,7 +17,7 @@ cc_binary(
         "-fno-exceptions",
         "-fno-rtti",
     ],
-    deps = ["//10.0.0"],
+    deps = ["@llvm//10.0.0"],
 )
 
 sh_test(
@@ -37,7 +37,19 @@ cc_test(
         "-fno-exceptions",
         "-fno-rtti",
     ],
-    deps = ["//10.0.0"],
+    deps = ["@llvm//10.0.0"],
+)
+
+cc_binary(
+    name = "hello-pass-10.0.0",
+    srcs = ["hello-pass.cc"],
+    copts = [
+        "-std=c++14",
+        "-fno-exceptions",
+        "-fno-rtti",
+    ],
+    linkshared = 1,
+    deps = ["@llvm//10.0.0"],
 )
 
 cc_test(
@@ -48,5 +60,5 @@ cc_test(
         "-fno-exceptions",
         "-fno-rtti",
     ],
-    deps = ["//10.0.0"],
+    deps = ["@llvm//10.0.0"],
 )
