@@ -40,7 +40,7 @@ cc_test(
     deps = ["@llvm//10.0.0"],
 )
 
-cc_binary(
+cc_library(
     name = "hello-pass-10.0.0",
     srcs = ["hello-pass.cc"],
     copts = [
@@ -48,7 +48,6 @@ cc_binary(
         "-fno-exceptions",
         "-fno-rtti",
     ],
-    linkshared = 1,
     deps = ["@llvm//10.0.0"],
 )
 
