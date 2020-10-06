@@ -3,6 +3,18 @@ package(default_visibility = ["//visibility:public"])
 
 licenses(["notice"])
 
+# This filegroup is a glob of the clang source tree.
+filegroup(
+    name = "clang_src",
+    srcs = ["@clang-10.0.0//:all"],
+)
+
+# This filegroup is a glob of the LLVM source tree.
+filegroup(
+    name = "llvm_src",
+    srcs = ["@llvm-10.0.0//:all"],
+)
+
 ##### Begin work-in-progress for rules_foreign_cc build of LLVM:
 
 # load("@rules_foreign_cc//tools/build_defs:cmake.bzl", "cmake_external")

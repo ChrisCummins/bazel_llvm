@@ -9,6 +9,26 @@ def llvm_deps():
     llvm_deps()
   """
   http_archive(
+    name="clang-10.0.0",
+    build_file_content = """filegroup(name = "all", srcs = glob(["**"]), visibility = ["//visibility:public"])""",
+    sha256 = "885b062b00e903df72631c5f98b9579ed1ed2790f74e5646b4234fa084eacb21",
+    strip_prefix="clang-10.0.0.src",
+    urls=[
+      "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/clang-10.0.0.src.tar.xz",
+    ],
+  )
+
+  http_archive(
+    name="llvm-10.0.0",
+    build_file_content = """filegroup(name = "all", srcs = glob(["**"]), visibility = ["//visibility:public"])""",
+    sha256 = "df83a44b3a9a71029049ec101fb0077ecbbdf5fe41e395215025779099a98fdf",
+    strip_prefix="llvm-10.0.0.src",
+    urls=[
+      "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/llvm-10.0.0.src.tar.xz",
+    ],
+  )
+
+  http_archive(
     name="clang-llvm-10.0.0-x86_64-apple-darwin",
     build_file="@llvm//:llvm_macos.BUILD",
     sha256="633a833396bf2276094c126b072d52b59aca6249e7ce8eae14c728016edb5e61",
