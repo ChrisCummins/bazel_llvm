@@ -8,9 +8,23 @@ def llvm_deps():
     load("@llvm//tools/bzl:deps.bzl", "llvm_deps")
     llvm_deps()
   """
+  srcs_build_file = """
+filegroup(
+    name = "readme",
+    srcs = ["README.txt"],
+    visibility = ["//visibility:public"]
+)
+
+filegroup(
+    name = "all",
+    srcs = glob(["**"]),
+    visibility = ["//visibility:public"]
+)
+"""
+
   http_archive(
     name="clang-10.0.0",
-    build_file_content = """filegroup(name = "all", srcs = glob(["**"]), visibility = ["//visibility:public"])""",
+    build_file_content = srcs_build_file,
     sha256 = "885b062b00e903df72631c5f98b9579ed1ed2790f74e5646b4234fa084eacb21",
     strip_prefix="clang-10.0.0.src",
     urls=[
@@ -20,7 +34,7 @@ def llvm_deps():
 
   http_archive(
     name="llvm-10.0.0",
-    build_file_content = """filegroup(name = "all", srcs = glob(["**"]), visibility = ["//visibility:public"])""",
+    build_file_content = srcs_build_file,
     sha256 = "df83a44b3a9a71029049ec101fb0077ecbbdf5fe41e395215025779099a98fdf",
     strip_prefix="llvm-10.0.0.src",
     urls=[

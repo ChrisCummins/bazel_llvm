@@ -9,7 +9,17 @@ filegroup(
     srcs = ["@clang-10.0.0//:all"],
 )
 
+filegroup(
+    name = "clang_readme",
+    srcs = ["@clang-10.0.0//:readme"],
+)
+
 # This filegroup is a glob of the LLVM source tree.
+filegroup(
+    name = "llvm_readme",
+    srcs = ["@llvm-10.0.0//:readme"],
+)
+
 filegroup(
     name = "llvm_src",
     srcs = ["@llvm-10.0.0//:all"],
