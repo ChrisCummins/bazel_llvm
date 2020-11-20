@@ -11,7 +11,10 @@ filegroup(
 
 filegroup(
     name = "libdir",
-    srcs = ["lib"],
+    srcs = [
+        ":LLVMPolly",
+        "lib",
+    ],
 )
 
 cc_library(
