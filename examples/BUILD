@@ -8,6 +8,13 @@ sh_test(
 )
 
 sh_test(
+    name = "clang-compile-6.0.0",
+    srcs = ["clang-compile.sh"],
+    data = ["@llvm//6.0.0:clang"],
+    args = ["$(location @llvm//6.0.0:clang)"],
+)
+
+sh_test(
     name = "clang-compile-10.0.0",
     srcs = ["clang-compile.sh"],
     data = ["@llvm//10.0.0:clang"],
@@ -15,7 +22,7 @@ sh_test(
 )
 
 cc_binary(
-    name = "clang-interpreter",
+    name = "clang-interpreter-10.0.0",
     srcs = ["clang-interpreter.cc"],
     copts = [
         "-std=c++14",
@@ -26,12 +33,10 @@ cc_binary(
 )
 
 sh_test(
-    name = "clang-interpreter-test",
+    name = "clang-interpreter-test-10.0.0",
     srcs = ["clang-interpreter-test.sh"],
-    data = [":clang-interpreter"],
-    deps = [
-        "@bazel_tools//tools/bash/runfiles",
-    ],
+    data = [":clang-interpreter-10.0.0"],
+    args = ["$(location :clang-interpreter-10.0.0)"],
 )
 
 cc_test(
@@ -67,6 +72,17 @@ cc_test(
         "-D__STDC_LIMIT_MACROS",
     ],
     deps = ["@llvm//3.8.0"],
+)
+
+cc_test(
+    name = "hello-world-6.0.0",
+    srcs = ["hello-world.cc"],
+    copts = [
+        "-std=c++14",
+        "-fno-exceptions",
+        "-fno-rtti",
+    ],
+    deps = ["@llvm//6.0.0"],
 )
 
 cc_test(

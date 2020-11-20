@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
-#
-# Usage: ./clang-compile.sh /path/to/clang
+# Test compiling an object file from an input.
 set -euo pipefail
 
 main() {
-  local clang="$1"
-
   set -x
-  echo 'int main() {}' | $clang -xc -c -emit-llvm -S - -o -
+  echo 'int main() {}' | "$1" -xc - -c
 }
 main $@

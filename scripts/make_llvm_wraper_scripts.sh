@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Create wrapper scripts for LLVM 10.0.0 binaries and add the coresponding BUILD entries.
-# # Usage: ./scripts/make_filegroups.sh /path/to/linux_llvm /path/to/macos_llvm
+# Create wrapper scripts for LLVM binaries and add the coresponding BUILD entries.
+# # Usage: ./scripts/make_filegroups.sh version_num /path/to/linux_llvm /path/to/macos_llvm
 set -euo pipefail
 
 make_wrapper_script() {
@@ -48,10 +48,10 @@ sh_binary(
     srcs = ["$binary.sh"],
     data = select({
         "//:darwin": [
-            "@clang-llvm-10.0.0-x86_64-apple-darwin//:$binary",
+            "@clang-llvm-$version-x86_64-apple-darwin//:$binary",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:$binary",
+            "@clang-llvm-$version-x86_64-linux-gnu-ubuntu-18.04//:$binary",
         ],
     }),
     deps = [
@@ -62,14 +62,15 @@ EOF
 }
 
 main() {
-  local build_a="$1"
-  local build_b="$2"
+  local version="$1"
+  local build_a="$2"
+  local build_b="$3"
 
   find $build_a/bin \( -type f -o -type l \) -printf '%f\n' | sort >a.txt
   find $build_b/bin \( -type f -o -type l \) -printf '%f\n' | sort >b.txt
 
   for f in $(comm -12 a.txt b.txt); do
-    make_wrapper_script 10.0.0 $f
+    make_wrapper_script "$version" $f
   done
 
   rm a.txt b.txt
