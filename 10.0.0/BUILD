@@ -459,7 +459,7 @@ filegroup(
 #     name = "all_files",
 #     srcs = select({
 #         "//:darwin": ["@clang-llvm-10.0.0-x86_64-apple-darwin//:all_files"],
-#         "//conditions:default": ["@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:all_files"],
+#         "//conditions:default": ["@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:all_files"],
 #     }),
 # )
 
@@ -471,7 +471,7 @@ cc_library(
     data = select({
         "//:darwin": ["@clang-llvm-10.0.0-x86_64-apple-darwin//:libdir"],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:libdir",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:libdir",
         ],
     }),
     linkopts = select({
@@ -483,8 +483,8 @@ cc_library(
             "-Wl,-headerpad_max_install_names",
         ],
         "//conditions:default": [
-            "-Wl,-rpath,$(location @clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:libdir)/",
-            "-L$(location @clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:libdir)/",
+            "-Wl,-rpath,$(location @clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:libdir)/",
+            "-L$(location @clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:libdir)/",
         ],
     }) + select({
         # llvm-config --system-libs
@@ -676,9 +676,9 @@ cc_library(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:libs",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:headers",
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:static_libs",
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:LLVMPolly",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:headers",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:static_libs",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:LLVMPolly",
         ],
     }),
 )
@@ -693,7 +693,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:bugpoint",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:bugpoint",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:bugpoint",
         ],
     }),
     deps = [
@@ -709,7 +709,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:c-index-test",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:c-index-test",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:c-index-test",
         ],
     }),
     deps = [
@@ -725,7 +725,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang",
         ],
     }),
     deps = [
@@ -741,7 +741,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang++",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang++",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang++",
         ],
     }),
     deps = [
@@ -757,7 +757,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-10",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-10",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-10",
         ],
     }),
     deps = [
@@ -773,7 +773,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-apply-replacements",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-apply-replacements",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-apply-replacements",
         ],
     }),
     deps = [
@@ -789,7 +789,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-change-namespace",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-change-namespace",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-change-namespace",
         ],
     }),
     deps = [
@@ -805,7 +805,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-check",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-check",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-check",
         ],
     }),
     deps = [
@@ -821,7 +821,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-cl",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-cl",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-cl",
         ],
     }),
     deps = [
@@ -837,7 +837,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-cpp",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-cpp",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-cpp",
         ],
     }),
     deps = [
@@ -853,7 +853,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-doc",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-doc",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-doc",
         ],
     }),
     deps = [
@@ -869,7 +869,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-extdef-mapping",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-extdef-mapping",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-extdef-mapping",
         ],
     }),
     deps = [
@@ -885,7 +885,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-format",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-format",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-format",
         ],
     }),
     deps = [
@@ -901,7 +901,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-import-test",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-import-test",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-import-test",
         ],
     }),
     deps = [
@@ -917,7 +917,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-include-fixer",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-include-fixer",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-include-fixer",
         ],
     }),
     deps = [
@@ -933,7 +933,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-move",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-move",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-move",
         ],
     }),
     deps = [
@@ -949,7 +949,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-offload-bundler",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-offload-bundler",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-offload-bundler",
         ],
     }),
     deps = [
@@ -965,7 +965,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-offload-wrapper",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-offload-wrapper",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-offload-wrapper",
         ],
     }),
     deps = [
@@ -981,7 +981,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-query",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-query",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-query",
         ],
     }),
     deps = [
@@ -997,7 +997,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-refactor",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-refactor",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-refactor",
         ],
     }),
     deps = [
@@ -1013,7 +1013,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-rename",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-rename",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-rename",
         ],
     }),
     deps = [
@@ -1029,7 +1029,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-reorder-fields",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-reorder-fields",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-reorder-fields",
         ],
     }),
     deps = [
@@ -1045,7 +1045,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-scan-deps",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-scan-deps",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-scan-deps",
         ],
     }),
     deps = [
@@ -1061,7 +1061,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-tidy",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-tidy",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clang-tidy",
         ],
     }),
     deps = [
@@ -1077,7 +1077,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:clangd",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clangd",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:clangd",
         ],
     }),
     deps = [
@@ -1093,7 +1093,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:diagtool",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:diagtool",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:diagtool",
         ],
     }),
     deps = [
@@ -1109,7 +1109,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:dsymutil",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:dsymutil",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:dsymutil",
         ],
     }),
     deps = [
@@ -1125,7 +1125,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:find-all-symbols",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:find-all-symbols",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:find-all-symbols",
         ],
     }),
     deps = [
@@ -1141,7 +1141,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:git-clang-format",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:git-clang-format",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:git-clang-format",
         ],
     }),
     deps = [
@@ -1157,7 +1157,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:hmaptool",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:hmaptool",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:hmaptool",
         ],
     }),
     deps = [
@@ -1173,7 +1173,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:ld.lld",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:ld.lld",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:ld.lld",
         ],
     }),
     deps = [
@@ -1189,7 +1189,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:ld64.lld",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:ld64.lld",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:ld64.lld",
         ],
     }),
     deps = [
@@ -1205,7 +1205,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llc",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llc",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llc",
         ],
     }),
     deps = [
@@ -1221,7 +1221,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:lld",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:lld",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:lld",
         ],
     }),
     deps = [
@@ -1237,7 +1237,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:lld-link",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:lld-link",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:lld-link",
         ],
     }),
     deps = [
@@ -1253,7 +1253,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:lli",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:lli",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:lli",
         ],
     }),
     deps = [
@@ -1269,7 +1269,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-addr2line",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-addr2line",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-addr2line",
         ],
     }),
     deps = [
@@ -1285,7 +1285,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-ar",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-ar",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-ar",
         ],
     }),
     deps = [
@@ -1301,7 +1301,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-as",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-as",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-as",
         ],
     }),
     deps = [
@@ -1317,7 +1317,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-bcanalyzer",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-bcanalyzer",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-bcanalyzer",
         ],
     }),
     deps = [
@@ -1333,7 +1333,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-c-test",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-c-test",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-c-test",
         ],
     }),
     deps = [
@@ -1349,7 +1349,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-cat",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-cat",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-cat",
         ],
     }),
     deps = [
@@ -1365,7 +1365,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-cfi-verify",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-cfi-verify",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-cfi-verify",
         ],
     }),
     deps = [
@@ -1381,7 +1381,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-config",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-config",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-config",
         ],
     }),
     deps = [
@@ -1397,7 +1397,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-cov",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-cov",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-cov",
         ],
     }),
     deps = [
@@ -1413,7 +1413,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-cvtres",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-cvtres",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-cvtres",
         ],
     }),
     deps = [
@@ -1429,7 +1429,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-cxxdump",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-cxxdump",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-cxxdump",
         ],
     }),
     deps = [
@@ -1445,7 +1445,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-cxxfilt",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-cxxfilt",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-cxxfilt",
         ],
     }),
     deps = [
@@ -1461,7 +1461,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-cxxmap",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-cxxmap",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-cxxmap",
         ],
     }),
     deps = [
@@ -1477,7 +1477,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-diff",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-diff",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-diff",
         ],
     }),
     deps = [
@@ -1493,7 +1493,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-dis",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-dis",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-dis",
         ],
     }),
     deps = [
@@ -1509,7 +1509,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-dlltool",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-dlltool",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-dlltool",
         ],
     }),
     deps = [
@@ -1525,7 +1525,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-dwarfdump",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-dwarfdump",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-dwarfdump",
         ],
     }),
     deps = [
@@ -1541,7 +1541,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-dwp",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-dwp",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-dwp",
         ],
     }),
     deps = [
@@ -1557,7 +1557,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-elfabi",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-elfabi",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-elfabi",
         ],
     }),
     deps = [
@@ -1573,7 +1573,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-exegesis",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-exegesis",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-exegesis",
         ],
     }),
     deps = [
@@ -1589,7 +1589,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-extract",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-extract",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-extract",
         ],
     }),
     deps = [
@@ -1605,7 +1605,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-ifs",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-ifs",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-ifs",
         ],
     }),
     deps = [
@@ -1621,7 +1621,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-install-name-tool",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-install-name-tool",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-install-name-tool",
         ],
     }),
     deps = [
@@ -1637,7 +1637,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-jitlink",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-jitlink",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-jitlink",
         ],
     }),
     deps = [
@@ -1653,7 +1653,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-lib",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-lib",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-lib",
         ],
     }),
     deps = [
@@ -1669,7 +1669,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-link",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-link",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-link",
         ],
     }),
     deps = [
@@ -1685,7 +1685,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-lipo",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-lipo",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-lipo",
         ],
     }),
     deps = [
@@ -1701,7 +1701,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-lto",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-lto",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-lto",
         ],
     }),
     deps = [
@@ -1717,7 +1717,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-lto2",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-lto2",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-lto2",
         ],
     }),
     deps = [
@@ -1733,7 +1733,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-mc",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-mc",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-mc",
         ],
     }),
     deps = [
@@ -1749,7 +1749,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-mca",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-mca",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-mca",
         ],
     }),
     deps = [
@@ -1765,7 +1765,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-modextract",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-modextract",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-modextract",
         ],
     }),
     deps = [
@@ -1781,7 +1781,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-mt",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-mt",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-mt",
         ],
     }),
     deps = [
@@ -1797,7 +1797,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-nm",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-nm",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-nm",
         ],
     }),
     deps = [
@@ -1813,7 +1813,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-objcopy",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-objcopy",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-objcopy",
         ],
     }),
     deps = [
@@ -1829,7 +1829,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-objdump",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-objdump",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-objdump",
         ],
     }),
     deps = [
@@ -1845,7 +1845,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-opt-report",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-opt-report",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-opt-report",
         ],
     }),
     deps = [
@@ -1861,7 +1861,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-pdbutil",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-pdbutil",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-pdbutil",
         ],
     }),
     deps = [
@@ -1877,7 +1877,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-profdata",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-profdata",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-profdata",
         ],
     }),
     deps = [
@@ -1893,7 +1893,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-ranlib",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-ranlib",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-ranlib",
         ],
     }),
     deps = [
@@ -1909,7 +1909,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-rc",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-rc",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-rc",
         ],
     }),
     deps = [
@@ -1925,7 +1925,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-readelf",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-readelf",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-readelf",
         ],
     }),
     deps = [
@@ -1941,7 +1941,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-readobj",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-readobj",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-readobj",
         ],
     }),
     deps = [
@@ -1957,7 +1957,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-reduce",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-reduce",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-reduce",
         ],
     }),
     deps = [
@@ -1973,7 +1973,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-rtdyld",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-rtdyld",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-rtdyld",
         ],
     }),
     deps = [
@@ -1989,7 +1989,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-size",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-size",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-size",
         ],
     }),
     deps = [
@@ -2005,7 +2005,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-split",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-split",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-split",
         ],
     }),
     deps = [
@@ -2021,7 +2021,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-stress",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-stress",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-stress",
         ],
     }),
     deps = [
@@ -2037,7 +2037,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-strings",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-strings",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-strings",
         ],
     }),
     deps = [
@@ -2053,7 +2053,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-strip",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-strip",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-strip",
         ],
     }),
     deps = [
@@ -2069,7 +2069,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-symbolizer",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-symbolizer",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-symbolizer",
         ],
     }),
     deps = [
@@ -2085,7 +2085,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-tblgen",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-tblgen",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-tblgen",
         ],
     }),
     deps = [
@@ -2101,7 +2101,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-undname",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-undname",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-undname",
         ],
     }),
     deps = [
@@ -2117,7 +2117,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:llvm-xray",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:llvm-xray",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:llvm-xray",
         ],
     }),
     deps = [
@@ -2133,7 +2133,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:modularize",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:modularize",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:modularize",
         ],
     }),
     deps = [
@@ -2149,7 +2149,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:obj2yaml",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:obj2yaml",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:obj2yaml",
         ],
     }),
     deps = [
@@ -2165,7 +2165,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:opt",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:opt",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:opt",
         ],
     }),
     deps = [
@@ -2181,7 +2181,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:pp-trace",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:pp-trace",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:pp-trace",
         ],
     }),
     deps = [
@@ -2197,7 +2197,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:sancov",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:sancov",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:sancov",
         ],
     }),
     deps = [
@@ -2213,7 +2213,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:sanstats",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:sanstats",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:sanstats",
         ],
     }),
     deps = [
@@ -2229,7 +2229,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:scan-build",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:scan-build",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:scan-build",
         ],
     }),
     deps = [
@@ -2245,7 +2245,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:scan-view",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:scan-view",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:scan-view",
         ],
     }),
     deps = [
@@ -2261,7 +2261,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:verify-uselistorder",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:verify-uselistorder",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:verify-uselistorder",
         ],
     }),
     deps = [
@@ -2277,7 +2277,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:wasm-ld",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:wasm-ld",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:wasm-ld",
         ],
     }),
     deps = [
@@ -2293,7 +2293,7 @@ sh_binary(
             "@clang-llvm-10.0.0-x86_64-apple-darwin//:yaml2obj",
         ],
         "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:yaml2obj",
+            "@clang-llvm-10.0.0-x86_64-linux-gnu-centos7//:yaml2obj",
         ],
     }),
     deps = [
