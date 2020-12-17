@@ -63,6 +63,16 @@ filegroup(
   )
 
   http_archive(
+    name="clang-llvm-10.0.0-x86_64-linux-gnu-centos7",
+    build_file="@llvm//:llvm_linux.BUILD",
+    sha256 = "0f41d15b693398503c3205ce137ea66c1389f1aac79cbfd28068492dc26c183b",
+    strip_prefix="llvm-10.0.0-binaries-centos7",
+    urls=[
+      "https://smth.nyc3.digitaloceanspaces.com/llvm-10.0.0-binaries-centos7.tar.xz"
+    ],
+  )
+
+  http_archive(
     name="clang-llvm-6.0.0-x86_64-apple-darwin",
     build_file="//:llvm_macos.BUILD",
     sha256="0ef8e99e9c9b262a53ab8f2821e2391d041615dd3f3ff36fdf5370916b0f4268",
