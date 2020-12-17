@@ -1,6 +1,6 @@
 # `bazel_llvm`: LLVM libraries and binaries for bazel
 
-[![Build Status](https://travis-ci.org/ChrisCummins/bazel_llvm.svg?branch=master)](https://travis-ci.org/ChrisCummins/bazel_llvm)
+[![Build Status](https://travis-ci.org/ChrisCummins/bazel_llvm.svg?branch=development)](https://travis-ci.org/ChrisCummins/bazel_llvm)
 
 
 ## Overview
