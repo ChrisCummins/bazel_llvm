@@ -717,52 +717,34 @@ sh_binary(
     ],
 )
 
-sh_binary(
-    name = "clang",
-    srcs = ["clang.sh"],
-    data = select({
-        "//:darwin": [
-            "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang",
-        ],
-        "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang",
-        ],
+genrule(
+    name = "make_clang",
+    srcs = select({
+        "//:darwin": ["@clang-llvm-10.0.0-x86_64-apple-darwin//:clang"],
+        "//conditions:default": ["@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang"],
     }),
-    deps = [
-        "@bazel_tools//tools/bash/runfiles",
-    ],
+    outs = ["clang"],
+    cmd = "cp $< $@ && chmod +x $@",
 )
 
-sh_binary(
-    name = "clang++",
-    srcs = ["clang++.sh"],
-    data = select({
-        "//:darwin": [
-            "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang++",
-        ],
-        "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang++",
-        ],
+genrule(
+    name = "make_clang++",
+    srcs = select({
+        "//:darwin": ["@clang-llvm-10.0.0-x86_64-apple-darwin//:clang++"],
+        "//conditions:default": ["@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang++"],
     }),
-    deps = [
-        "@bazel_tools//tools/bash/runfiles",
-    ],
+    outs = ["clang++"],
+    cmd = "cp $< $@ && chmod +x $@",
 )
 
-sh_binary(
-    name = "clang-10",
-    srcs = ["clang-10.sh"],
-    data = select({
-        "//:darwin": [
-            "@clang-llvm-10.0.0-x86_64-apple-darwin//:clang-10",
-        ],
-        "//conditions:default": [
-            "@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang-10",
-        ],
+genrule(
+    name = "make_clang-10",
+    srcs = select({
+        "//:darwin": ["@clang-llvm-10.0.0-x86_64-apple-darwin//:clang"],
+        "//conditions:default": ["@clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04//:clang"],
     }),
-    deps = [
-        "@bazel_tools//tools/bash/runfiles",
-    ],
+    outs = ["clang-10"],
+    cmd = "cp $< $@ && chmod +x $@",
 )
 
 sh_binary(
