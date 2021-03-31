@@ -43,22 +43,22 @@ filegroup(
   )
 
   http_archive(
-    name="clang-llvm-10.0.0-x86_64-apple-darwin",
+    name="clang-llvm-3.8.0-x86_64-apple-darwin",
     build_file="@llvm//:llvm_macos.BUILD",
-    sha256="633a833396bf2276094c126b072d52b59aca6249e7ce8eae14c728016edb5e61",
-    strip_prefix="clang+llvm-10.0.0-x86_64-apple-darwin",
+    sha256="e5a961e04b0e1738bbb5b824886a34932dc13b0af699d1fe16519d814d7b776f",
+    strip_prefix="clang+llvm-3.8.0-x86_64-apple-darwin",
     urls=[
-      "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/clang+llvm-10.0.0-x86_64-apple-darwin.tar.xz"
+      "https://releases.llvm.org/3.8.0/clang+llvm-3.8.0-x86_64-apple-darwin.tar.xz",
     ],
   )
 
   http_archive(
-    name="clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04",
+    name="clang-llvm-3.8.0-x86_64-linux-gnu-ubuntu-16.04",
     build_file="@llvm//:llvm_linux.BUILD",
-    sha256="b25f592a0c00686f03e3b7db68ca6dc87418f681f4ead4df4745a01d9be63843",
-    strip_prefix="clang+llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04",
+    sha256="866dda64c990e1489f8da40237f9cd96f4f57ffdc110f0b277bf9965d13b688b",
+    strip_prefix="clang+llvm-3.8.0-x86_64-linux-gnu-ubuntu-16.04",
     urls=[
-      "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/clang+llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz"
+      "https://releases.llvm.org/3.8.0/clang+llvm-3.8.0-x86_64-linux-gnu-ubuntu-16.04.tar.xz",
     ],
   )
 
@@ -79,5 +79,25 @@ filegroup(
     strip_prefix="clang+llvm-6.0.0-x86_64-linux-gnu-ubuntu-16.04",
     urls=[
       "https://releases.llvm.org/6.0.0/clang+llvm-6.0.0-x86_64-linux-gnu-ubuntu-16.04.tar.xz"
+    ],
+  )
+
+  http_archive(
+    name="clang-llvm-10.0.0-x86_64-apple-darwin",
+    build_file="@llvm//:llvm_macos.BUILD",
+    sha256="633a833396bf2276094c126b072d52b59aca6249e7ce8eae14c728016edb5e61",
+    strip_prefix="clang+llvm-10.0.0-x86_64-apple-darwin",
+    urls=[
+      "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/clang+llvm-10.0.0-x86_64-apple-darwin.tar.xz"
+    ],
+  )
+
+  http_archive(
+    name="clang-llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04",
+    build_file="@llvm//:llvm_linux.BUILD",
+    sha256="b25f592a0c00686f03e3b7db68ca6dc87418f681f4ead4df4745a01d9be63843",
+    strip_prefix="clang+llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04",
+    urls=[
+      "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/clang+llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz"
     ],
   )
