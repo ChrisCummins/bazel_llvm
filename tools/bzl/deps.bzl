@@ -64,7 +64,7 @@ filegroup(
 
   http_archive(
     name="clang-llvm-6.0.0-x86_64-apple-darwin",
-    build_file="//:llvm_macos.BUILD",
+    build_file="@llvm//:llvm_macos.BUILD",
     sha256="0ef8e99e9c9b262a53ab8f2821e2391d041615dd3f3ff36fdf5370916b0f4268",
     strip_prefix="clang+llvm-6.0.0-x86_64-apple-darwin",
     urls=[
@@ -74,7 +74,7 @@ filegroup(
 
   http_archive(
     name="clang-llvm-6.0.0-x86_64-linux-gnu-ubuntu-16.04",
-    build_file="//:llvm_linux.BUILD",
+    build_file="@llvm//:llvm_linux.BUILD",
     sha256="cc99fda45b4c740f35d0a367985a2bf55491065a501e2dd5d1ad3f97dcac89da",
     strip_prefix="clang+llvm-6.0.0-x86_64-linux-gnu-ubuntu-16.04",
     urls=[
