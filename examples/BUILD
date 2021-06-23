@@ -1,12 +1,17 @@
 # Examples of using LLVM.
 
 sh_test(
+    name = "clang-compile-3.8.0",
+    srcs = ["clang-compile.sh"],
+    data = ["@llvm//3.8.0:clang"],
+    args = ["$(location @llvm//3.8.0:clang)"],
+)
+
+sh_test(
     name = "clang-compile-10.0.0",
     srcs = ["clang-compile.sh"],
     data = ["@llvm//10.0.0:clang"],
-    deps = [
-        "@bazel_tools//tools/bash/runfiles",
-    ],
+    args = ["$(location @llvm//10.0.0:clang)"],
 )
 
 cc_binary(
@@ -49,6 +54,19 @@ cc_library(
         "-fno-rtti",
     ],
     deps = ["@llvm//10.0.0"],
+)
+
+cc_test(
+    name = "hello-world-3.8.0",
+    srcs = ["hello-world.cc"],
+    copts = [
+        "-std=c++14",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-D__STDC_CONSTANT_MACROS",
+        "-D__STDC_LIMIT_MACROS",
+    ],
+    deps = ["@llvm//3.8.0"],
 )
 
 cc_test(
