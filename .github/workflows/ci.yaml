@@ -1,0 +1,37 @@
+---
+name: CI
+
+on:
+    push:
+        branches:
+            - development
+    pull_request:
+
+jobs:
+    test:
+        runs-on: ${{ matrix.os }}
+
+        strategy:
+            fail-fast: false
+            matrix:
+                os: [ubuntu-latest, macos-latest]
+                bazel: [4.1.0, 3.0.0, 2.0.0]
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: 'Linux: Install bazelisk'
+              run: |
+                  curl -L "https://github.com/bazelbuild/bazelisk/releases/download/v1.6.1/bazelisk-linux-amd64" > bazel.tmp
+                  sudo mv bazel.tmp /usr/local/bin/bazel
+                  chmod +x /usr/local/bin/bazel
+              if: matrix.os == 'ubuntu-latest'
+
+            - name: 'macOS: Install bazelisk'
+              run: |
+                  brew install bazelisk
+              if: matrix.os == 'macos-latest'
+
+            - name: Test
+              run: |
+                  echo ${{ matrix.bazel }} > .bazelversion
+                  bazel test //...
