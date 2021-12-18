@@ -64,7 +64,7 @@ filegroup(
 
   http_archive(
     name="clang-llvm-6.0.0-x86_64-apple-darwin",
-    build_file="//:llvm_macos.BUILD",
+    build_file="@llvm//:llvm_macos.BUILD",
     sha256="0ef8e99e9c9b262a53ab8f2821e2391d041615dd3f3ff36fdf5370916b0f4268",
     strip_prefix="clang+llvm-6.0.0-x86_64-apple-darwin",
     urls=[
@@ -74,7 +74,7 @@ filegroup(
 
   http_archive(
     name="clang-llvm-6.0.0-x86_64-linux-gnu-ubuntu-16.04",
-    build_file="//:llvm_linux.BUILD",
+    build_file="@llvm//:llvm_linux.BUILD",
     sha256="cc99fda45b4c740f35d0a367985a2bf55491065a501e2dd5d1ad3f97dcac89da",
     strip_prefix="clang+llvm-6.0.0-x86_64-linux-gnu-ubuntu-16.04",
     urls=[
@@ -99,5 +99,25 @@ filegroup(
     strip_prefix="clang+llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04",
     urls=[
       "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/clang+llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz"
+    ],
+  )
+
+  http_archive(
+    name="clang-llvm-13.0.0-x86_64-apple-darwin",
+    build_file="@llvm//:llvm_macos.BUILD",
+    sha256="d051234eca1db1f5e4bc08c64937c879c7098900f7a0370f3ceb7544816a8b09",
+    strip_prefix="clang+llvm-13.0.0-x86_64-apple-darwin",
+    urls=[
+      "https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.0/clang+llvm-13.0.0-x86_64-apple-darwin.tar.xz"
+    ],
+  )
+
+  http_archive(
+    name="clang-llvm-13.0.0-x86_64-linux-gnu-ubuntu-20.04",
+    build_file="@llvm//:llvm_linux.BUILD",
+    sha256="2c2fb857af97f41a5032e9ecadf7f78d3eff389a5cd3c9ec620d24f134ceb3c8",
+    strip_prefix="clang+llvm-13.0.0-x86_64-linux-gnu-ubuntu-20.04",
+    urls=[
+      "https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.0/clang+llvm-13.0.0-x86_64-linux-gnu-ubuntu-20.04.tar.xz"
     ],
   )
